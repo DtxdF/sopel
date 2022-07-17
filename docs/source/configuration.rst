@@ -381,7 +381,7 @@ This behavior can be configured with:
   before triggering the loop prevention.
 * :attr:`~CoreSection.antiloop_silent_after`: how many times the bot will send
   the repeat text until it remains silent.
-* :attr:`~CoreSection.antiloop_window`: how much times (in seconds) since the
+* :attr:`~CoreSection.antiloop_window`: how much time (in seconds) since the
   last message must pass before ignoring the loop prevention.
 * :attr:`~CoreSection.antiloop_repeat_text`: the text used to replace repeating
   messages (default to ``...``).
