@@ -355,9 +355,9 @@ Loop prevention
 
 In order to prevent the bot from entering a loop (for example when there is
 another bot in the same channel, or if a user spams a command), it'll try to
-see if the next message to send is repeating too often in the last eight
-messages in the last few minutes. If that happens, the bot will send ``...``
-a few times before remaining silent::
+see if the next message to send is repeating too often in the last ten messages
+in the last few minutes. If that happens, the bot will send ``...`` a few times
+before remaining silent::
 
     <bot> I repeat myself!
     <bot> I repeat myself!
@@ -394,8 +394,8 @@ For example this configuration::
     antiloop_window = 60
     antiloop_repeat_text = Ditto.
 
-will activate the loop prevention feature if there is at least one message
-in the last 60s, from the last 8 messages, 2 are already the same. In that case
+will activate the loop prevention feature if there is at least one message in
+the last 60s, from the last 10 messages, 2 are already the same. In that case
 the bot will send ``...``, but only *once*. After that, the bot will remain
 silent. This doesn't affect other messages, i.e. messages that don't repeat::
 
@@ -417,6 +417,12 @@ You can **deactivate** the loop prevention by setting
     The loop prevention feature wasn't configurable before Sopel 8.0. The
     new configuration options are: ``antiloop_threshold``,
     ``antiloop_silent_after``, and ``antiloop_window``.
+
+.. warning::
+
+    Since Sopel remembers only the last ten messages, setting
+    ``antiloop_threshold`` to a number bigger than ten effectively deactivates
+    the loop prevention system.
 
 Perform commands on connect
 ---------------------------

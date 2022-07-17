@@ -836,7 +836,7 @@ class AbstractBot(abc.ABC):
 
             # Loop detection
             if antiloop_threshold > 0 and elapsed < antiloop_window:
-                messages = [m[1] for m in recipient_stack['messages'][-8:]]
+                messages = [m[1] for m in recipient_stack['messages'][-10:]]
 
                 # If what we're about to send repeated at least N times
                 # in the anti-looping window, replace it
